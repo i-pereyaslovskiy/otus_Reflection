@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace otus_Reflection
 {
-    internal class F
+    public class F
     {
-        int i1, i2, i3, i4, i5;
-        public F Get() => new F() { i1 = 1, i2 = 2, i3 = 3, i4 = 4, i5 = 5 };
+        public int i1, i2, i3, i4, i5;
+        public F Get() => new() { i1 = 1, i2 = 2, i3 = 3, i4 = 4, i5 = 5 };
     }
 }
