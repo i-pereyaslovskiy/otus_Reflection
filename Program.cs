@@ -5,6 +5,8 @@ F f = new F();
 Serialize serialize = new Serialize();
 
 F newF = f.Get();
-var h = serialize.SerializeToCSV(newF);
+var h = serialize.SerializeCSV(newF);
+var k = serialize.SerializeNewtonsoftJson(newF);
+
 Console.WriteLine(h);
 Console.ReadKey();

@@ -1,4 +1,5 @@
-﻿using otus_Reflection.Interface;
+﻿using Newtonsoft.Json;
+using otus_Reflection.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace otus_Reflection.Services
 {
     internal class Serialize : ISerialize
     {
-        public string SerializeToCSV<T>(T fClass)
+        public string SerializeCSV<T>(T fClass)
         {
 
             const string Separator = ",";
