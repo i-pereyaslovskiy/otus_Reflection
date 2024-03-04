@@ -1,12 +1,18 @@
 ﻿using otus_Reflection;
+using otus_Reflection.Models;
 using otus_Reflection.Services;
+using otus_Reflection.Storage;
 
-F f = new F();
-Serialize serialize = new Serialize();
+TimeWatch timeWatch = new TimeWatch();
 
-F newF = f.Get();
-var h = serialize.SerializeCSV(newF);
-var k = serialize.SerializeNewtonsoftJson(newF);
+Console.WriteLine(timeWatch.ShowCustomeSerializeTimeCSV());
+Console.ReadKey();
 
-Console.WriteLine(h);
+Console.WriteLine(timeWatch.ShowCustomeDeserializeTimeCSV());
+Console.ReadKey();
+
+Console.WriteLine(timeWatch.ShowNewtonsoftJsonSerializeTime());
+Console.ReadKey();
+
+Console.WriteLine(timeWatch.ShowNewtonsoftJsonDeserializeTime());
 Console.ReadKey();

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace otus_Reflection
+namespace otus_Reflection.Models
 {
     public class F
     {

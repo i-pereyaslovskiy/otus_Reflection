@@ -33,5 +33,9 @@ namespace otus_Reflection.Services
             return sb.ToString();
         }
 
+        public string SerializeNewtonsoftJson<T>(T fClas)
+        {
+            return JsonConvert.SerializeObject(fClas);
+        }
     }
 }
