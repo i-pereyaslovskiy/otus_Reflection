@@ -1,4 +1,5 @@
 ﻿using otus_Reflection.Models;
+using otus_Reflection.Reflection.Serialize;
 using otus_Reflection.Storage;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,20 @@ namespace otus_Reflection.Services
     internal class TimeWatch
     {
         private F _f;
-        private Serialize _serialize;
+        private CsvSerializer _csvSerializer;
+        private JsonSerializer _jsonSerializer;
+        
+            
         private DeSerialize _deSerialize;
         private Stopwatch _stopwatch;
-        private const int _ITERATIONS = 10000;
+        private const int _ITERATIONS = 1;
 
         public TimeWatch()
         {
             _f = new F().Get();
-            _serialize = new Serialize();
+            _csvSerializer = new CsvSerializer();
+            _jsonSerializer = new JsonSerializer();
+
             _deSerialize = new DeSerialize();
             _stopwatch = new Stopwatch();
         }
@@ -29,12 +35,13 @@ namespace otus_Reflection.Services
         public string ShowCustomeSerializeTimeCSV() {
             _stopwatch.Start();
 
-            string str;
+            string str = "";
             for (int i = 0; i < _ITERATIONS; i++)
-                str = _serialize.SerializeCSV(_f);
+                str = _csvSerializer.Serialize(_f);
 
             _stopwatch.Stop();
-            return $"My Custom CSV Serilization lasted: {_stopwatch.ElapsedMilliseconds} ms";
+            return str;
+            //return $"My Custom CSV Serilization lasted: {_stopwatch.ElapsedMilliseconds} ms";
         }
         public string ShowCustomeDeserializeTimeCSV() {
             _stopwatch.Start();
@@ -53,7 +60,7 @@ namespace otus_Reflection.Services
 
             string str;
             for (int i = 0; i < _ITERATIONS; i++)
-                str = _serialize.SerializeNewtonsoftJson(_f);
+                str = _jsonSerializer.Serialize(_f);
 
             _stopwatch.Stop();
             return $"NewtonsoftJson Serilization lasted: {_stopwatch.ElapsedMilliseconds} ms";

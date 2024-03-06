@@ -11,8 +11,8 @@ Console.ReadKey();
 Console.WriteLine(timeWatch.ShowCustomeDeserializeTimeCSV());
 Console.ReadKey();
 
-Console.WriteLine(timeWatch.ShowNewtonsoftJsonSerializeTime());
-Console.ReadKey();
+//Console.WriteLine(timeWatch.ShowNewtonsoftJsonSerializeTime());
+//Console.ReadKey();
 
-Console.WriteLine(timeWatch.ShowNewtonsoftJsonDeserializeTime());
-Console.ReadKey();
+//Console.WriteLine(timeWatch.ShowNewtonsoftJsonDeserializeTime());
+//Console.ReadKey();

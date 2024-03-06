@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using otus_Reflection.Interface;
+﻿using otus_Reflection.Interface;
 using otus_Reflection.Models;
 using System;
 using System.Collections.Generic;
@@ -7,19 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace otus_Reflection.Services
+namespace otus_Reflection.Reflection.Deserialize
 {
-    internal class DeSerialize 
+    internal class CsvDeserializer : IDeserializer
     {
-        public F DeSerializeCSV(string str)
+        public F DeSerialize(string str)
         {
             F _f = new F();
 
-            var fields = _f.GetType().GetFields();
+            var type = _f.GetType();
+            var fields = type?.GetFields();
+            var properties = type?.GetProperties();
 
             var _dataArrays = str.Split("\r\n");
             var _headers = _dataArrays[0].Split(",").ToList();
-            var _values  = _dataArrays[1].Split(",");
+            var _values = _dataArrays[1].Split(",");
 
             foreach (var field in fields)
             {
@@ -27,13 +28,14 @@ namespace otus_Reflection.Services
                 var val = Convert.ToInt32(_values[i]);
                 field.SetValue(_f, val);
             }
-            
+
             return _f;
         }
 
-        public F DeSerializeNewtonsoftJson(string str)
+        public T DeSerialize<T>(string str)
         {
-            return JsonConvert.DeserializeObject<F>(str);
+
+            return new F();
         }
     }
 }

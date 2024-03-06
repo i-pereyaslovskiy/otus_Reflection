@@ -10,7 +10,7 @@ namespace otus_Reflection.Storage
     {
         public static string GetStringCSV()
         {
-            return "i1,i2,i3,i4,i5\r\n1,2,3,4,5";
+            return "i3,i4,i5,i1,i2\r\n3,4,5,1,2";
         } 
 
         public static string GetStringJSON()
