@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace otus_Reflection.Reflection.Serialize
 {
-    internal class JsonSerializer : ISerializer
+    internal class JsonSerialize: ISerializer
     {
         public string Serialize<T>(T obj)
         {

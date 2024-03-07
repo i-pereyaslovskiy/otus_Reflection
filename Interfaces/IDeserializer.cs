@@ -9,6 +9,6 @@ namespace otus_Reflection.Interface
 {
     internal interface IDeserializer
     {
-        public T DeSerialize<T>(string str);
+        public T Deserialize<T>(string str);
     }
 }

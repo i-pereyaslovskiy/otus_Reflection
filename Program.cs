@@ -1,7 +1,4 @@
-﻿using otus_Reflection;
-using otus_Reflection.Models;
-using otus_Reflection.Services;
-using otus_Reflection.Storage;
+﻿using otus_Reflection.Services;
 
 TimeWatch timeWatch = new TimeWatch();
 
@@ -11,8 +8,14 @@ Console.ReadKey();
 Console.WriteLine(timeWatch.ShowCustomeDeserializeTimeCSV());
 Console.ReadKey();
 
-//Console.WriteLine(timeWatch.ShowNewtonsoftJsonSerializeTime());
-//Console.ReadKey();
+Console.WriteLine(timeWatch.ShowNewtonsoftJsonSerializeTime());
+Console.ReadKey();
 
-//Console.WriteLine(timeWatch.ShowNewtonsoftJsonDeserializeTime());
-//Console.ReadKey();
+Console.WriteLine(timeWatch.ShowNewtonsoftJsonDeserializeTime());
+Console.ReadKey();
+
+
+
+Console.WriteLine(timeWatch.ShowCsvSerializationResult());
+Console.WriteLine(timeWatch.ShowJsonSerializationResult());
+Console.ReadKey();

@@ -9,16 +9,11 @@ using System.Threading.Tasks;
 
 namespace otus_Reflection.Reflection.Deserialize
 {
-    internal class JsonDeserializer : IDeserializer
+    internal class JsonDeserialize : IDeserializer
     {
-        public F DeSerialize(string str)
+        public T Deserialize<T>(string str)
         {
-            return JsonConvert.DeserializeObject<F>(str);
-        }
-
-        public T DeSerialize<T>(string str)
-        {
-            return JsonConvert.DeserializeObject<F>(str);
+            return JsonConvert.DeserializeObject<T>(str);
         }
     }
 }
