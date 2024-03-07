@@ -25,7 +25,6 @@ namespace otus_Reflection.Reflection.Deserialize
 
             foreach (var member in members)
             {
-
                 if (member.MemberType == MemberTypes.Field || member.MemberType == MemberTypes.Property)
                 {
                     if (member.MemberType == MemberTypes.Field)
@@ -40,9 +39,7 @@ namespace otus_Reflection.Reflection.Deserialize
                         var val = Convert.ToInt32(_values[i]);
                         type.GetProperty(member.Name).SetValue(instance, val);
                     }
-
                 }
-
             }
 
             return instance;

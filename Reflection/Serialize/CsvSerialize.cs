@@ -8,36 +8,36 @@ namespace otus_Reflection.Reflection.Serialize
     {
         public string Serialize<T>(T obj)
         {
-            const string Separator = ",";
+            const char Separator = ',';
          
 
             var type = obj?.GetType();
             var members = type?.GetMembers();
 
-            StringBuilder sbHeaders = new StringBuilder();
-            StringBuilder sbValues = new StringBuilder();
+            StringBuilder sBuilder = new StringBuilder();
+
+            List<string> headers = new List<string>();
+            List<string> values = new List<string>();
 
             foreach (var member in members) { 
          
                 if(member.MemberType == MemberTypes.Field || member.MemberType == MemberTypes.Property)
                 {
-                    sbHeaders.Append($"{member.Name}{Separator}");
+                    headers.Add(member.Name);
 
                     if (member.MemberType == MemberTypes.Field)
-                        sbValues.Append($"{type.GetField(member.Name).GetValue(obj)}{Separator}");
+                        values.Add($"{type.GetField(member.Name).GetValue(obj)}");
                     else
-                        sbValues.Append($"{type.GetProperty(member.Name).GetValue(obj)}{Separator}");
+                        values.Add($"{type.GetProperty(member.Name).GetValue(obj)}");
                 }
 
             }
 
-            sbHeaders.Length--;
-            sbValues.Length--;
-
-
-            return sbHeaders.
+            return sBuilder.
+                AppendJoin(Separator, headers).
                 AppendLine().
-                Append(sbValues).ToString();
+                AppendJoin(Separator, values).
+                ToString();
         }
     }
 }
